@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -40,5 +41,18 @@
   padding-left: 4px;
   padding-right: 4px;
   padding-top: 2px;
+}
+
+.navBtn{
+  padding-left: 8px;
   
 }
+
+.btnContainer{
+  display: flex;
+  justify-content: center;
+  margin-top:1em;
+  padding-bottom: 1em;
+  
+}
+

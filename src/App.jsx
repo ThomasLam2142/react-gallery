@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 
+
 const imageUrls = {
   image1: '/images/image1.jpg',
   image2: '/images/image2.jpg',
@@ -31,17 +32,30 @@ export default function App() {
   return (
     <>
       <span>
-        <h1 className="text-3xl font-bold underline">
+        <h1 className="text-3xl font-bold underline text-cyan-400">
           Image Gallery
         </h1>
       </span>
 
       <div className='searchBar'>
         <span>
-          <h2>Search for an image:</h2>
+          <h2 className="text-xl italic text-cyan-400">Search for an image:</h2>
         </span>
-        <input type="text" placeholder="Search for an image..." className="text-lg border rounded-md p-2"/>
+        <input type="text" placeholder="Type here" className="input input-bordered input-success w-full max-w-xs" />
       </div>
+      
+      <div className='btnContainer'>
+        <span className='navBtn'>
+          <button className="btn btn-primary btnPrevious">Previous Page</button>
+        </span>
+        <span className='navBtn'>
+          <button className="btn btn-primary btnNext">Next Page</button>
+        </span>
+        
+      </div>
+      
+
+
       
       <body>
         <div className='galleryContainer'>
