@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-
 
 const imageUrls = {
   image1: '/images/image1.jpg',
@@ -22,13 +21,35 @@ const imageUrls = {
   image17: '/images/image17.jpg',
   image18: '/images/image18.jpg',
   image19: '/images/image19.jpg',
-  image20: '/images/image20.jpg'
+  image20: '/images/image20.jpg',
+  image21: '/images/image21.jpg',
+  image22: '/images/image22.jpg',
+  image23: '/images/image23.jpg',
+  image24: '/images/image24.jpg',
+  //image25: '/images/image25.jpg'
 };
 
 const imgwidth = 600;
 const imgheight = 337.50;
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState(0);
+
+  // Calculate the range of images to display based on the currentPage state
+  const startIndex = currentPage * 6;
+  const endIndex = startIndex + 6;
+  const displayedImages = Object.values(imageUrls).slice(startIndex, endIndex);
+
+  function nextClick() {
+    setCurrentPage(currentPage + 1);
+  }
+
+  function prevClick() {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  }
+
   return (
     <>
       <span>
@@ -43,52 +64,23 @@ export default function App() {
         </span>
         <input type="text" placeholder="Type here" className="input input-bordered input-success w-full max-w-xs" />
       </div>
-      
+
       <div className='btnContainer'>
-        <span className='navBtn'>
-          <button className="btn btn-primary btnPrevious">Previous Page</button>
+        <span className='navBtn' >
+          <button className="btn btn-primary btnPrevious" onClick={prevClick}>Previous Page</button>
         </span>
-        <span className='navBtn'>
-          <button className="btn btn-primary btnNext">Next Page</button>
+        <span className='navBtn' >
+          <button className="btn btn-primary btnNext" onClick={nextClick}>Next Page</button>
         </span>
-        
       </div>
-      
 
-
-      
-      <body>
-        <div className='galleryContainer'>
-
-          <div className='imgContainer'>
-            <img src = {imageUrls.image1} className='imgElement' width={imgwidth} height={imgheight}/>
+      <div className='galleryContainer'>
+        {displayedImages.map((imageUrl, index) => (
+          <div className='imgContainer' key={index}>
+            <img src={imageUrl} className='imgElement' width={imgwidth} height={imgheight} alt={`Image ${index + 1}`} />
           </div>
-          
-          <div className='imgContainer'>
-            <img src = {imageUrls.image2} className='imgElement' width={imgwidth} height={imgheight}/>
-          </div>
-
-          <div className='imgContainer'>
-            <img src = {imageUrls.image3} className='imgElement' width={imgwidth} height={imgheight}/>
-          </div>
-
-          <div className='imgContainer'>
-            <img src = {imageUrls.image4} className='imgElement' width={imgwidth} height={imgheight}/>
-          </div>
-
-          <div className='imgContainer'>
-            <img src = {imageUrls.image5} className='imgElement' width={imgwidth} height={imgheight}/>
-          </div>
-
-          <div className='imgContainer'>
-            <img src = {imageUrls.image6} className='imgElement' width={imgwidth} height={imgheight}/>
-          </div>
-
-        </div>
-      </body>
-        
-      
+        ))}
+      </div>
     </>
-    
   )
 }

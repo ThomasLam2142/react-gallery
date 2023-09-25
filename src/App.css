@@ -38,15 +38,21 @@
 }
 
 .imgContainer{
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-top: 2px;
+  padding:4px;
+}
+
+.imgContainer:hover{
+  cursor: pointer;
 }
 
 .navBtn{
   padding-left: 8px;
-  
 }
+
+.navBtn:hover{
+  cursor: pointer;
+}
+
 
 .btnContainer{
   display: flex;
