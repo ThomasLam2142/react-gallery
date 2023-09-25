@@ -76,9 +76,11 @@ export default function App() {
 
       <div className='galleryContainer'>
         {displayedImages.map((imageUrl, index) => (
-          <div className='imgContainer' key={index}>
-            <img src={imageUrl} className='imgElement' width={imgwidth} height={imgheight} alt={`Image ${index + 1}`} />
-          </div>
+          <a href={imageUrl} key={index} target="_blank" rel="noopener noreferrer">
+            <div className='imgContainer'>
+              <img src={imageUrl} className='imgElement' width={imgwidth} height={imgheight} alt={`Image ${index + 1}`} />
+            </div>
+          </a>
         ))}
       </div>
     </>
