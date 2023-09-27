@@ -9,9 +9,11 @@
 .imgElement {
   will-change: filter;
   transition: filter 300ms;
+  transition: transform 300ms;
 }
 .imgElement:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
+  transform: scale(1.1);
 }
 .imgElement.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
